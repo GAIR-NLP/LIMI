@@ -1,0 +1,132 @@
+diff --git a/python/sglang/srt/configs/model_config.py b/python/sglang/srt/configs/model_config.py
+index 1b96ae678..3b7023c55 100644
+--- a/python/sglang/srt/configs/model_config.py
++++ b/python/sglang/srt/configs/model_config.py
+@@ -454,14 +454,14 @@ class ModelConfig:
+             ).lower()
+ 
+             # Detect which checkpoint is it
+-            for _, method in QUANTIZATION_METHODS.items():
+-                quantization_override = method.override_quantization_method(
+-                    quant_cfg, self.quantization
+-                )
+-                if quantization_override:
+-                    quant_method = quantization_override
+-                    self.quantization = quantization_override
+-                    break
++            # for _, method in QUANTIZATION_METHODS.items():
++            #    quantization_override = method.override_quantization_method(
++            #        quant_cfg, self.quantization
++            #    )
++            #    if quantization_override:
++            #        quant_method = quantization_override
++            #        self.quantization = quantization_override
++            #        break
+ 
+             # Verify quantization configurations.
+             if self.quantization is None:
+diff --git a/python/sglang/srt/layers/moe/token_dispatcher/deepep.py b/python/sglang/srt/layers/moe/token_dispatcher/deepep.py
+index 372717bf9..40665cc90 100644
+--- a/python/sglang/srt/layers/moe/token_dispatcher/deepep.py
++++ b/python/sglang/srt/layers/moe/token_dispatcher/deepep.py
+@@ -190,6 +190,7 @@ class DeepEPBuffer:
+                     f"Consider using --deepep-config to change the behavior."
+                 )
+ 
++        num_qps_per_rank = 20
+         cls._buffer = Buffer(
+             group,
+             num_nvl_bytes,
+diff --git a/python/sglang/srt/layers/quantization/fp8.py b/python/sglang/srt/layers/quantization/fp8.py
+index 956264fc9..7801d29d5 100644
+--- a/python/sglang/srt/layers/quantization/fp8.py
++++ b/python/sglang/srt/layers/quantization/fp8.py
+@@ -351,10 +351,10 @@ class Fp8LinearMethod(LinearMethodBase):
+                 return
+             else:
+                 weight, weight_scale = layer.weight.data, layer.weight_scale_inv.data
+-            layer.weight = torch.nn.Parameter(weight, requires_grad=False)
+-            layer.weight_scale_inv = torch.nn.Parameter(
+-                weight_scale, requires_grad=False
+-            )
++            # layer.weight = torch.nn.Parameter(weight, requires_grad=False)
++            # layer.weight_scale_inv = torch.nn.Parameter(
++            #    weight_scale, requires_grad=False
++            # )
+             return
+ 
+         layer.weight = torch.nn.Parameter(layer.weight.data, requires_grad=False)
+diff --git a/python/sglang/srt/managers/scheduler.py b/python/sglang/srt/managers/scheduler.py
+index 3856bf259..dfbb9523e 100644
+--- a/python/sglang/srt/managers/scheduler.py
++++ b/python/sglang/srt/managers/scheduler.py
+@@ -1346,7 +1346,7 @@ class Scheduler(
+ 
+         if memory_leak:
+             msg = "token_to_kv_pool_allocator memory leak detected! " f"{token_msg}"
+-            raise ValueError(msg)
++            # raise ValueError(msg)
+ 
+         if self.disaggregation_mode == DisaggregationMode.DECODE:
+             req_total_size = (
+@@ -1361,7 +1361,7 @@ class Scheduler(
+                 f"available_size={len(self.req_to_token_pool.free_slots)}, "
+                 f"total_size={self.req_to_token_pool.size}\n"
+             )
+-            raise ValueError(msg)
++            # raise ValueError(msg)
+ 
+         if (
+             self.enable_metrics
+diff --git a/python/sglang/srt/managers/tokenizer_manager.py b/python/sglang/srt/managers/tokenizer_manager.py
+index 50ac39f88..33782a8cd 100644
+--- a/python/sglang/srt/managers/tokenizer_manager.py
++++ b/python/sglang/srt/managers/tokenizer_manager.py
+@@ -1045,10 +1045,15 @@ class TokenizerManager:
+         request: Optional[fastapi.Request] = None,
+     ) -> Tuple[bool, str]:
+         self.auto_create_handle_loop()
+-        assert (
+-            self.server_args.dp_size == 1
+-        ), "dp_size must be 1 for init parameter update group"
+-        result = (await self.init_weights_update_group_communicator(obj))[0]
++        results = await self.init_weights_update_group_communicator(obj)
++        if self.server_args.dp_size == 1:
++            result = results[0]
++            return result.success, result.message
++        else:
++            all_success = all([r.success for r in results])
++            all_message = [r.message for r in results]
++            all_message = " | ".join(all_message)
++            return all_success, all_message
+         return result.success, result.message
+ 
+     async def update_weights_from_distributed(
+@@ -1057,9 +1062,6 @@ class TokenizerManager:
+         request: Optional[fastapi.Request] = None,
+     ) -> Tuple[bool, str]:
+         self.auto_create_handle_loop()
+-        assert (
+-            self.server_args.dp_size == 1 or self.server_args.enable_dp_attention
+-        ), "dp_size must be 1 or dp attention must be enabled for update weights from distributed"
+ 
+         if obj.abort_all_requests:
+             self.abort_request(abort_all=True)
+@@ -1067,8 +1069,15 @@ class TokenizerManager:
+         # This means that weight sync
+         # cannot run while requests are in progress.
+         async with self.model_update_lock.writer_lock:
+-            result = (await self.update_weights_from_distributed_communicator(obj))[0]
+-            return result.success, result.message
++            results = await self.update_weights_from_distributed_communicator(obj)
++            if self.server_args.dp_size == 1:
++                result = results[0]
++                return result.success, result.message
++            else:
++                all_success = all([r.success for r in results])
++                all_message = [r.message for r in results]
++                all_message = " | ".join(all_message)
++                return all_success, all_message
+ 
+     async def update_weights_from_tensor(
+         self,

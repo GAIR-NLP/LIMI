@@ -1,0 +1,8 @@
+accelerate
+httpx[http2]
+mcp[cli]
+pylatexenc
+ray[default]
+sglang
+torch
+wandb
