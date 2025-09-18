@@ -1,4 +1,4 @@
-# LIMI: Less is More for Agentic Intelligence
+# LIMI: Less is More for Agency
 
 <p align="center">
   📄 <a href="https://arxiv.org/pdf/2502.03387" target="_blank">Paper</a> &nbsp; | &nbsp;
@@ -7,7 +7,7 @@
 </p>
 
 
-<p align="center"> <img src="./images/limi.png" style="width: 85%;" id="title-icon">       </p>
+<p align="center"> <img src="./assets/teaser.jpg" style="width: 85%;" id="title-icon">       </p>
 
 
 
