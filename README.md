@@ -2,7 +2,7 @@
 
 <p align="center">
   📄 <a href="https://arxiv.org/pdf/2502.03387" target="_blank">Paper</a> &nbsp; | &nbsp;
-  🌐 <a href="https://huggingface.co/datasets/GAIR/limi" target="_blank">Dataset </a> &nbsp; | &nbsp;
+  🌐 <a href="https://huggingface.co/datasets/GAIR/LIMI" target="_blank">Dataset </a> &nbsp; | &nbsp;
   📘 <a href="https://huggingface.co/GAIR/LIMI" target="_blank">Model </a>
 </p>
 
