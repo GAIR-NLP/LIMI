@@ -1,3 +1,8 @@
+<div align="center">
+
+<img src="assets/sii.jpg" alt="SII" width="96" height="96">
+<img src="assets/asi.png" alt="ASI" width="96" height="96">
+
 # LIMI: Less is More for Agency
 
 <p align="center">
@@ -8,7 +13,7 @@
 
 
 <p align="center"> <img src="./assets/teaser.jpg" style="width: 85%;" id="title-icon">       </p>
-
+</div>
 
 
 ## 📌 Table of Contents
@@ -190,7 +195,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ```bibtex
 @misc{2025limi,
-      title={LIMI: ess is More for Agentic Intelligence}, 
+      title={LIMI: Less is More for Agency}, 
       author={},
       year={2025},
       eprint={2509.},
