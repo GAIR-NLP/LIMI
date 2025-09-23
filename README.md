@@ -6,9 +6,9 @@
 # LIMI: Less is More for Agency
 
 <p align="center">
-  📄 <a href="https://arxiv.org/pdf/2509.17567" target="_blank">Paper</a> &nbsp; | &nbsp;
-  🌐 <a href="https://huggingface.co/datasets/GAIR/LIMI" target="_blank">Dataset </a> &nbsp; | &nbsp;
-  📘 <a href="https://huggingface.co/GAIR/LIMI" target="_blank">Model </a>
+  <img src="assets/arxiv-logo.svg" alt="arXiv" width="16" height="16"> <a href="https://arxiv.org/pdf/2509.17567" target="_blank">Paper</a> &nbsp; | &nbsp;
+  <img src="assets/dataset.png" alt="Dataset" width="16" height="16"> <a href="https://huggingface.co/datasets/GAIR/LIMI" target="_blank">Dataset </a> &nbsp; | &nbsp;
+  <img src="assets/huggingface-icon.png" alt="Hugging Face" width="16" height="16"> <a href="https://huggingface.co/GAIR/LIMI" target="_blank">Model </a>
 </p>
 
 
