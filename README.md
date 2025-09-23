@@ -44,7 +44,7 @@ Our LIMI models are available on Hugging Face 🤗:
 | **LIMI-Air** | [GLM-4.5-Air](https://huggingface.co/zai-org/GLM-4.5-Air) | 106B | [🤗](https://huggingface.co/GAIR/LIMI-Air) |
 
 
-## Datasets
+## 📊 Datasets
 
 We release our datasets through Hugging Face 🤗:
 
