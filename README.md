@@ -6,7 +6,7 @@
 # LIMI: Less is More for Agency
 
 <p align="center">
-  📄 <a href="https://arxiv.org/pdf/2502.03387" target="_blank">Paper</a> &nbsp; | &nbsp;
+  📄 <a href="https://arxiv.org/pdf/2509.17567" target="_blank">Paper</a> &nbsp; | &nbsp;
   🌐 <a href="https://huggingface.co/datasets/GAIR/LIMI" target="_blank">Dataset </a> &nbsp; | &nbsp;
   📘 <a href="https://huggingface.co/GAIR/LIMI" target="_blank">Model </a>
 </p>
@@ -194,13 +194,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Citation
 
 ```bibtex
-@misc{2025limi,
+@misc{xiao2025limiagency,
       title={LIMI: Less is More for Agency}, 
-      author={},
+      author={Yang Xiao and Mohan Jiang and Jie Sun and Keyu Li and Jifan Lin and Yumin Zhuang and Ji Zeng and Shijie Xia and Qishuo Hua and Xuefeng Li and Xiaojie Cai and Tongyu Wang and Yue Zhang and Liming Liu and Xia Wu and Jinlong Hou and Yuan Cheng and Wenjie Li and Xiang Wang and Dequan Wang and Pengfei Liu},
       year={2025},
-      eprint={2509.},
+      eprint={2509.17567},
       archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2509.}, 
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2509.17567}, 
 }
 ```
