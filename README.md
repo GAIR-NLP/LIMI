@@ -15,24 +15,49 @@
 <p align="center"> <img src="./assets/teaser.jpg" style="width: 85%;" id="title-icon">       </p>
 </div>
 
+Visit our Hugging Face organization (click links above), search for models and datasets starting with `LIMI`, and you will find all you need! Enjoy!
 
-## 📌 Table of Contents
-- [LIMI: Less is More for Agentic Intelligence 🚀](#limi-less-is-more-for-agentic-intelligence)
-  - [Updates](#updates)
-  - [📌 Table of Contents](#-table-of-contents)
-  - [Overview](#overview)
-  - [Model Zoo](#model-zoo)
-  - [Datasets](#datasets)
-  - [Quick Start](#quick-start)
-  - [Training](#training)
-  - [Evaluation](#evaluation)
-  - [License](#license)
-  - [Citation](#citation)
+To learn more about LIMI, feel free to explore our documentation and resources. Our release consists of the following sections:
+
+- **Model Zoo && Quick Start**: Basic usage and demonstrations with Transformers, vLLM, and SGLang for LIMI and LIMI-Air;
+- **Training**: Instructions for fine-tuning and post-training with slime framework and distributed training scripts;
+- **Evaluation**: Comprehensive evaluation suite with metrics for agentic capabilities assessment;
+- **Framework Integration**: Usage of LIMI with frameworks for agentic applications, tool use, and reasoning tasks.
+
+## News
+- **2025.09.23**: 🚀 LIMI paper is now available on arXiv! Check out our [paper](https://arxiv.org/pdf/2509.17567) for detailed methodology and experimental results.
+- **2025.09.23**: 🤗 Released LIMI models on Hugging Face! Both [LIMI](https://huggingface.co/GAIR/LIMI) (355B) and [LIMI-Air](https://huggingface.co/GAIR/LIMI-Air) (106B) are now available.
+- **2025.09.23**: 📊 Released the LIMI training dataset with 78 carefully curated samples on [Hugging Face](https://huggingface.co/datasets/GAIR/LIMI).
 
 
-## Overview
+## Introduction
 
-LIMI is a framework that explores this possibility by demonstrating that strategic data curation and focused development of essential agentic capabilities can yield superior agentic systems with significantly reduced computational requirements. 
+LIMI establish the Agency Efficiency Principle: machine autonomy emerges not from data abundance but from strategic curation of high-quality agentic demonstrations. This discovery fundamentally reshapes how we develop autonomous AI systems, suggesting that mastering agency requires understanding its essence, not scaling training data. As industries transition from thinking AI to working AI, LIMI provides a paradigm for sustainable cultivation of truly agentic intelligence.
+
+### Key Highlights
+
+- **A New Data Paradigm**: We challenge the traditional "more is better" data philosophy by achieving superior AI agency with only 78 high-quality samples, proving that data quality far outweighs quantity.
+
+- **Resource Efficiency**: By focusing on core capabilities instead of massive datasets, we significantly reduce the computational resources required for training while effectively boosting the model's performance on complex tasks.
+
+- **Focus on Productive Workers**: Our approach is dedicated to cultivating AI's essential ability to act as a "worker"—to autonomously identify problems, plan, and execute tasks—rather than just "thinking" and "generating."
+
+- **Outperforming Leading Models**: LIMI significantly surpasses multiple large-scale models in AgencyBench, achieving a performance boost of up to 53.7% with only 1/128th of the sample size.
+
+## Performance on AgencyBench
+
+Our models achieve state-of-the-art performance across multiple agentic evaluation tasks:
+
+| Model | FTFC (↑) | RC@3 (↑) | SR@3 (↑) | Avg. |
+|-------|----------|----------|----------|-----------------|
+| GLM-4.5-Air | 15.0 | 16.1 | 20.0 | 17.0 |
+| GLM-4.5 | 37.8 | 50.0 | 47.4 | 45.1 |
+|GLM-4.5-CodeAgent| 48.0 | 48.0|47.5| 47.8|
+| **LIMI-Air** | **35.4** | **34.3** | **33.1** | **34.3** |
+| **LIMI** | **71.7** | **74.2** | **74.6** | **73.5** |
+
+
+For detailed benchmark results, experimental setup, and comprehensive comparisons, please refer to our [paper](https://arxiv.org/pdf/2509.17567). 
 
 ## Model Zoo
 
@@ -44,7 +69,7 @@ Our LIMI models are available on Hugging Face 🤗:
 | **LIMI-Air** | [GLM-4.5-Air](https://huggingface.co/zai-org/GLM-4.5-Air) | 106B | [🤗](https://huggingface.co/GAIR/LIMI-Air) |
 
 
-## 📊 Datasets
+## Datasets
 
 We release our datasets through Hugging Face 🤗:
 
@@ -180,11 +205,9 @@ We utilize [slime](https://github.com/THUDM/slime) framework for training, which
 
 ## Evaluation
 
-To support the rigorous assessment of agentic capabilities outlined in this work, we release a comprehensive evaluation suite. This framework is designed to benchmark Large Language Models (LLMs) on the held-out evaluation subset $D_{\text{eval}}$ and is structured around two core components: an inference module (utilizing the VLLM framework for efficient generation) and an evaluation module for scoring model performance against our defined metrics.
+To support the rigorous assessment of agentic capabilities outlined in this work, we release a comprehensive evaluation suite. This framework is designed to benchmark agency for Large Language Models (LLMs) on the held-out evaluation subset $D_{\text{eval}}$.
 
-The evaluation module implements the four key metrics: First-Turn Functional Completeness (FTFC), Success Rate (SR@R), Remaining Chances (RC@R), with a computational budget of R = 3 rounds. For FTFC and other rule-based assessments, we employ precise matching of requirements and outcomes.
-
-For detailed instructions on usage, implementation details, and replication of our experimental results, please refer to the complete documentation available at \texttt{eval/README.md}.
+The evaluation module implements the three key metrics: First-Turn Functional Completeness (FTFC), Success Rate (SR@R) and Remaining Chances (RC@R), with a computational budget of R = 3 rounds. For detailed benchmark tasks, please refer to [AgencyBench](https://agencybench.opensii.ai).
 
 
 ## License
