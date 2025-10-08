@@ -199,7 +199,7 @@ We utilize [slime](https://github.com/THUDM/slime) framework for training, which
    - Obtain the LIMI dataset from [🤗 Hugging Face](https://huggingface.co/datasets/GAIR/LIMI).
 
 3. **Configuration**
-   - Use our provided [training script](https://github.com/GAIR-NLP/LIMI/scripts/train/train_glm4.5.sh).
+   - Use our provided [training script](https://github.com/GAIR-NLP/LIMI/blob/main/scripts/train/train_glm4.5.sh).
    - The script file contains all necessary hyperparameters and training settings.
 
 
