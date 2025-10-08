@@ -47,9 +47,23 @@ LIMI establish the Agency Efficiency Principle: machine autonomy emerges not fro
 
 - **Outperforming Leading Models**: LIMI significantly surpasses multiple large-scale models in AgencyBench, achieving a performance boost of up to 53.7% with only 1/128th of the sample size.
 
-## Performance on AgencyBench
+## Performance
 
-Our models achieve state-of-the-art performance across multiple agentic evaluation tasks:
+### SFT with LIMI Dataset on Dense Models
+
+Our LIMI dataset significantly enhances dense models (Qwen3 series) on both in-domain and out-of-domain benchmarks:
+
+<p align="center">
+  <img src="./assets/generalize_improvement.png" style="width: 85%;" alt="Performance Improvements on AgencyBench and Out-of-Domain Benchmarks">
+</p>
+
+The figure above demonstrates the effectiveness of our training approach:
+- **Left (AgencyBench)**: Substantial improvements on in-domain agentic tasks, with Qwen3-4B (4.6% → 8.6%), Qwen3-8B (7.3% → 10.6%), and Qwen3-32B (8.4% → 20.5%).
+- **Right (Out-of-Domain)**: Strong generalization to unseen benchmarks while maintaining performance, with Qwen3-4B (28.3% → 28.9%), Qwen3-8B (31.2% → 32.0%), and Qwen3-32B (35.2% → 37.1%).
+
+### LIMI Models on AgencyBench
+
+Our LIMI models (based on GLM-4.5) achieve state-of-the-art performance across multiple agentic evaluation tasks:
 
 | Model | FTFC (↑) | RC@3 (↑) | SR@3 (↑) | Avg. |
 |-------|----------|----------|----------|-----------------|
@@ -61,12 +75,6 @@ Our models achieve state-of-the-art performance across multiple agentic evaluati
 
 
 For detailed benchmark results, experimental setup, and comprehensive comparisons, please refer to our [paper](https://arxiv.org/pdf/2509.17567).
-
-### Generalization Performance
-
-<p align="center">
-  <img src="./assets/generalize_improvement.png" style="width: 85%;" alt="Generalization Improvement Results">
-</p>
 
 ## Model Zoo
 
