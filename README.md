@@ -26,7 +26,8 @@ To learn more about LIMI, feel free to explore our documentation and resources. 
 
 ## News
 
-- **2025.10.08**: Our LIMI dataset significantly enhances dense models on **AgencyBench**: Qwen3-4B (4.6% → 8.6%), Qwen3-8B (7.3% → 10.6%), Qwen3-32B (8.4% → 20.5%).
+- **2025.10.08**: 📝 Released training scripts for Qwen3 dense models (4B/8B/32B) - check out our [training scripts](https://github.com/GAIR-NLP/LIMI/tree/main/scripts/train) to reproduce the results!
+- **2025.10.08**: 📊 Our LIMI dataset significantly enhances dense models on **AgencyBench**: Qwen3-4B (4.6% → 8.6%), Qwen3-8B (7.3% → 10.6%), Qwen3-32B (8.4% → 20.5%).
 - **2025.10.08**: 🎯 Strong generalization on **out-of-domain benchmarks** while maintaining performance: Qwen3-4B (28.3% → 28.9%), Qwen3-8B (31.2% → 32.0%), Qwen3-32B (35.2% → 37.1%).
 - **2025.09.23**: 🚀 LIMI paper is now available on arXiv! Check out our [paper](https://arxiv.org/pdf/2509.17567) for detailed methodology and experimental results.
 - **2025.09.23**: 🤗 Released LIMI models on Hugging Face! Both [LIMI](https://huggingface.co/GAIR/LIMI) (355B) and [LIMI-Air](https://huggingface.co/GAIR/LIMI-Air) (106B) are now available.
