@@ -25,6 +25,9 @@ To learn more about LIMI, feel free to explore our documentation and resources. 
 - **Framework Integration**: Usage of LIMI with frameworks for agentic applications, tool use, and reasoning tasks.
 
 ## News
+
+- **2025.10.08**: Our LIMI dataset significantly enhances dense models on **AgencyBench**: Qwen3-4B (4.6% → 8.6%), Qwen3-8B (7.3% → 10.6%), Qwen3-32B (8.4% → 20.5%).
+- **2025.10.08**: 🎯 Strong generalization on **out-of-domain benchmarks** while maintaining performance: Qwen3-4B (28.3% → 28.9%), Qwen3-8B (31.2% → 32.0%), Qwen3-32B (35.2% → 37.1%).
 - **2025.09.23**: 🚀 LIMI paper is now available on arXiv! Check out our [paper](https://arxiv.org/pdf/2509.17567) for detailed methodology and experimental results.
 - **2025.09.23**: 🤗 Released LIMI models on Hugging Face! Both [LIMI](https://huggingface.co/GAIR/LIMI) (355B) and [LIMI-Air](https://huggingface.co/GAIR/LIMI-Air) (106B) are now available.
 - **2025.09.23**: 📊 Released the LIMI training dataset with 78 carefully curated samples on [Hugging Face](https://huggingface.co/datasets/GAIR/LIMI).
@@ -57,7 +60,13 @@ Our models achieve state-of-the-art performance across multiple agentic evaluati
 | **LIMI** | **71.7** | **74.2** | **74.6** | **73.5** |
 
 
-For detailed benchmark results, experimental setup, and comprehensive comparisons, please refer to our [paper](https://arxiv.org/pdf/2509.17567). 
+For detailed benchmark results, experimental setup, and comprehensive comparisons, please refer to our [paper](https://arxiv.org/pdf/2509.17567).
+
+### Generalization Performance
+
+<p align="center">
+  <img src="./assets/generalize_improvement.png" style="width: 85%;" alt="Generalization Improvement Results">
+</p>
 
 ## Model Zoo
 
@@ -79,7 +88,7 @@ We release our datasets through Hugging Face 🤗:
 
 ## Quick Start
 
-Our models are fine-tuned on [GLM-4.5](https://huggingface.co/zai-org/GLM-4.5) and are compatible with most mainstream frameworks like [HF Transformers](https://github.com/huggingface/transformers), [SGLang](https://github.com/sgl-project/sglang), [Megatron](https://github.com/NVIDIA/Megatron-LM), [slime](https://github.com/THUDM/slime) and etc. 
+Our models are fine-tuned on [GLM-4.5](https://huggingface.co/zai-org/GLM-4.5) and are compatible with most mainstream frameworks like [HF Transformers](https://github.com/huggingface/transformers), [SGLang](https://github.com/sgl-project/sglang), [Megatron](https://github.com/NVIDIA/Megatron-LM), [slime](https://github.com/THUDM/slime) and etc.
 
 ### Using the Latest Model (LIMI)
 
@@ -199,7 +208,7 @@ We utilize [slime](https://github.com/THUDM/slime) framework for training, which
    - Obtain the LIMI dataset from [🤗 Hugging Face](https://huggingface.co/datasets/GAIR/LIMI).
 
 3. **Configuration**
-   - Use our provided [training script](https://github.com/GAIR-NLP/LIMI/blob/main/scripts/train/train_glm4.5.sh).
+   - Use our provided [training script](https://github.com/GAIR-NLP/LIMI/blob/main/scripts/train).
    - The script file contains all necessary hyperparameters and training settings.
 
 
